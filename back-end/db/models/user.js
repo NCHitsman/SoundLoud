@@ -47,7 +47,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
   User.associate = function(models) {
-    // associations can be defined here
+    User.hasMany(models.Song, {foriegnKey: 'createdBy'})
+    User.hasMany(models.Comments, {foriengKey: 'createdBy'})
   };
   User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
     const { id, username, email } = this; // context will be the User instance
