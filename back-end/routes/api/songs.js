@@ -20,4 +20,17 @@ router.get('/', asyncHandler(async (req, res) => {
     res.json(songs)
 }))
 
+router.get('/:songId/comments', asyncHandler( async (req, res) => {
+    const { songId } = req.params
+
+    const comments = await Comment.findAll({
+        where: {
+            songId: songId
+        },
+        order: [['createdAt', 'DESC']],
+        include: User
+    })
+    res.json(comments)
+}))
+
 module.exports = router;

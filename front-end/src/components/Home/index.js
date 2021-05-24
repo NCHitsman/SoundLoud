@@ -13,6 +13,7 @@ export default function Home({ all, popular }) {
                 {Object.values(all).map(song => {
                     return (
                         <Link className='audio__cont' key={`${song.name}-`} to={`/songs/${song.id}`}>
+                            <h4>{song.name}</h4>
                             <audio controls src={song.link} />
                         </Link>
                     )
@@ -25,6 +26,8 @@ export default function Home({ all, popular }) {
                 {Object.values(popular).map(song => {
                     return (
                         <Link className='audio__cont' key={`${song.name}+`} to={`/songs/${song.id}`}>
+                            <h4>{song.name}</h4>
+                            <h5>Views: {song.views}</h5>
                             <audio controls src={song.link} />
                         </Link>
                     )

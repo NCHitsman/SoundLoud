@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
-      createdBy: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {model: 'Users'}
