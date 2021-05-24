@@ -27,14 +27,16 @@ router.get('/:songId/comments', asyncHandler( async (req, res) => {
         where: {
             songId: songId
         },
-        order: [['createdAt', 'DESC']],
+        order: [['createdAt', 'ASC']],
         include: User
     })
     res.json(comments)
 }))
 
 router.post('/:songId/createComment', asyncHandler( async (req, res) => {
-    await Comment.create(req.body)
+    let {id} = await Comment.create(req.body)
+    let comment = await Comment.findByPk(id, {include: User})
+    res.json(comment)
 }))
 
 module.exports = router;

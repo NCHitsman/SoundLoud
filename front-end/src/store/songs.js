@@ -4,6 +4,8 @@ const FIND_SONGS = 'songs/FIND_SONGS'
 const FIND_POPULAR = 'songs/FIND_POPULAR'
 const FIND_COMMENTS = 'songs/FIND_COMMENTS'
 const ADD_COMMENT = 'songs/ADD_COMMENT'
+const EDIT_COMMENT = 'songs/EDIT_COMMENT'
+let counterTwo = 10000;
 
 const findSongs = (songs) => {
     return {
@@ -31,7 +33,13 @@ const createComments = (comment) => {
         type: ADD_COMMENT,
         payload: comment
     }
+}
 
+const editComments = (comment) => {
+    return {
+        type: EDIT_COMMENT,
+        payload: comment
+    }
 }
 
 export const findAllSongs = () => async (dispatch) => {
@@ -65,9 +73,19 @@ export const createComment = (newComment, songId) => async (dispatch) => {
     return response
 }
 
+export const editComment = (text, commentId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/songs/editComment/${commentId}`, {
+        method: 'PUT',
+        body: JSON.stringify(text)
+    })
+    const data = await response.json()
+    dispatch(editComments(data))
+    return response
+}
+
 const songReducer = (state = {songs: {}, popular: {}}, action) => {
     let newState;
-    let counterTwo = 0;
+
     switch (action.type) {
         case FIND_SONGS:
             newState = { ...state }
@@ -90,13 +108,18 @@ const songReducer = (state = {songs: {}, popular: {}}, action) => {
             newState.comments = {}
             action.payload.forEach(comment => {
                 newState.comments[counterTwo] = comment;
-                counterTwo++
+                counterTwo--
             })
             return newState;
         case ADD_COMMENT:
-            newState = { ...state }
+            newState = { ...state, comments: {...state.comments} }
             newState.comments[counterTwo] = action.payload;
-            counterTwo++
+            counterTwo--
+            return newState;
+        case EDIT_COMMENT:
+            newState = { ...state, comments: {...state.comments} }
+            newState.comments[counterTwo] = action.payload;
+            counterTwo--
             return newState;
         default:
             return state;

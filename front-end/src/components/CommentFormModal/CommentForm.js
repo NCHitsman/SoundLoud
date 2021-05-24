@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createComment } from '../../store/songs'
+import { createComment, editComment } from '../../store/songs'
 
-export default function CommentForm( {songId, userId }) {
+const CommentForm = ( {songId, userId, setShowModal, edit, commentId }) => {
     const dispatch = useDispatch();
     const [text, setText] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmitNew = async (e) => {
         e.preventDefault();
 
         const payload = {
@@ -15,13 +15,25 @@ export default function CommentForm( {songId, userId }) {
             songId: songId,
         }
 
-        console.log(payload)
+        await dispatch(createComment(payload, songId));
 
-        return dispatch(createComment(payload, songId));
+        setShowModal(false)
     };
 
+    const handleSubmitEdit = async (e) => {
+        e.preventDefault();
+
+        const payload = {
+            text,
+        }
+
+        await dispatch(editComment(payload, commentId));
+
+        setShowModal(false)
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={edit ? handleSubmitEdit : handleSubmitNew}>
             <textarea
                 value={text}
                 onChange={(e) => { setText(e.target.value) }}>
@@ -31,3 +43,5 @@ export default function CommentForm( {songId, userId }) {
         </form>
     )
 }
+
+export default CommentForm;
