@@ -33,4 +33,8 @@ router.get('/:songId/comments', asyncHandler( async (req, res) => {
     res.json(comments)
 }))
 
+router.post('/:songId/createComment', asyncHandler( async (req, res) => {
+    await Comment.create(req.body)
+}))
+
 module.exports = router;

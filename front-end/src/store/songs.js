@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf'
 const FIND_SONGS = 'songs/FIND_SONGS'
 const FIND_POPULAR = 'songs/FIND_POPULAR'
 const FIND_COMMENTS = 'songs/FIND_COMMENTS'
+const ADD_COMMENT = 'songs/ADD_COMMENT'
 
 const findSongs = (songs) => {
     return {
@@ -23,6 +24,14 @@ const findComments = (comments) => {
         type: FIND_COMMENTS,
         payload: comments
     }
+}
+
+const createComments = (comment) => {
+    return {
+        type: ADD_COMMENT,
+        payload: comment
+    }
+
 }
 
 export const findAllSongs = () => async (dispatch) => {
@@ -46,8 +55,19 @@ export const findSongComments = (songId) => async (dispatch) => {
     return response
 }
 
+export const createComment = (newComment, songId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/songs/${songId}/createComment`, {
+        method: 'POST',
+        body: JSON.stringify(newComment)
+    })
+    const data = await response.json()
+    dispatch(createComments(data))
+    return response
+}
+
 const songReducer = (state = {songs: {}, popular: {}}, action) => {
     let newState;
+    let counterTwo = 0;
     switch (action.type) {
         case FIND_SONGS:
             newState = { ...state }
@@ -66,14 +86,18 @@ const songReducer = (state = {songs: {}, popular: {}}, action) => {
             })
             return newState;
         case FIND_COMMENTS:
-            let counterTwo = 0;
             newState = { ...state }
             newState.comments = {}
             action.payload.forEach(comment => {
                 newState.comments[counterTwo] = comment;
                 counterTwo++
             })
-        return newState;
+            return newState;
+        case ADD_COMMENT:
+            newState = { ...state }
+            newState.comments[counterTwo] = action.payload;
+            counterTwo++
+            return newState;
         default:
             return state;
     }
