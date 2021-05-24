@@ -4,7 +4,6 @@ const FIND_SONGS = 'songs/FIND_SONGS'
 const FIND_POPULAR = 'songs/FIND_POPULAR'
 const FIND_COMMENTS = 'songs/FIND_COMMENTS'
 const ADD_COMMENT = 'songs/ADD_COMMENT'
-const EDIT_COMMENT = 'songs/EDIT_COMMENT'
 let counterTwo = 10000;
 
 const findSongs = (songs) => {
@@ -35,12 +34,6 @@ const createComments = (comment) => {
     }
 }
 
-const editComments = (comment) => {
-    return {
-        type: EDIT_COMMENT,
-        payload: comment
-    }
-}
 
 export const findAllSongs = () => async (dispatch) => {
     const response = await csrfFetch('/api/songs')
@@ -79,7 +72,16 @@ export const editComment = (text, commentId) => async (dispatch) => {
         body: JSON.stringify(text)
     })
     const data = await response.json()
-    dispatch(editComments(data))
+    dispatch(findComments(data))
+    return response
+}
+
+export const deleteComment = (commentId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/songs/deleteComment/${commentId}`, {
+        method: 'DELETE'
+    })
+    const data = await response.json()
+    dispatch(findComments(data))
     return response
 }
 
@@ -112,11 +114,6 @@ const songReducer = (state = {songs: {}, popular: {}}, action) => {
             })
             return newState;
         case ADD_COMMENT:
-            newState = { ...state, comments: {...state.comments} }
-            newState.comments[counterTwo] = action.payload;
-            counterTwo--
-            return newState;
-        case EDIT_COMMENT:
             newState = { ...state, comments: {...state.comments} }
             newState.comments[counterTwo] = action.payload;
             counterTwo--

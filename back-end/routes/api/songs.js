@@ -34,9 +34,42 @@ router.get('/:songId/comments', asyncHandler( async (req, res) => {
 }))
 
 router.post('/:songId/createComment', asyncHandler( async (req, res) => {
-    let {id} = await Comment.create(req.body)
-    let comment = await Comment.findByPk(id, {include: User})
+    const {id} = await Comment.create(req.body)
+    const comment = await Comment.findByPk(id, {include: User})
     res.json(comment)
+}))
+
+router.put('/editComment/:commentId', asyncHandler( async (req, res) => {
+    const { commentId } = req.params
+    const comment = await Comment.findByPk(commentId)
+    comment.text = req.body.text
+    await comment.save()
+    const songId = comment.songId
+    const comments = await Comment.findAll({
+        where: {
+            songId: songId
+        },
+        order: [['createdAt', 'ASC']],
+        include: User
+    })
+    res.json(comments)
+}))
+
+router.delete('/deleteComment/:commentId', asyncHandler( async (req, res) => {
+    const { commentId } = req.params
+    const comment = await Comment.findByPk(commentId)
+    const songId = comment.songId
+
+    await comment.destroy()
+
+    const comments = await Comment.findAll({
+        where: {
+            songId: songId
+        },
+        order: [['createdAt', 'ASC']],
+        include: User
+    })
+    res.json(comments)
 }))
 
 module.exports = router;
