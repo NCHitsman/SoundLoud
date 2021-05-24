@@ -5,7 +5,7 @@ import songReducer from './songs'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  music: songReducer
+  music: songReducer,
 });
 
 let enhancer;

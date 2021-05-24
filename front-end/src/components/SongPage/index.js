@@ -1,17 +1,21 @@
 import { useParams } from 'react-router-dom'
-import {findSongComments} from '../../store/songs'
-import { useDispatch } from 'react-redux'
+import { findSongComments } from '../../store/songs'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
-export default function SongPage ({ all }) {
+export default function SongPage({ all }) {
     const { songId } = useParams()
     const dispatch = useDispatch()
 
+
     useEffect(() => {
         dispatch(findSongComments(songId))
-    },[dispatch])
+    }, [dispatch, songId])
 
     const song = all[songId]
+
+    const comments = useSelector(state => state.music.comments)
+    console.log(comments)
 
     return (
         <>
@@ -27,7 +31,11 @@ export default function SongPage ({ all }) {
             <audio controls src={song?.link} />
             <h3>Comments:</h3>
             <ul>
-                <li>hi</li>
+                {comments && Object.values(comments).map(comment => {
+                    return (
+                        <div className='comment__container' key={comment}>{comment.User.username} says: {comment.text}</div>
+                    )
+                })}
             </ul>
         </>
     )
