@@ -39,7 +39,7 @@ const userReducer = (state = {}, action) => {
             newState.user = action.payload
             return newState
         case FIND_USER_SONGS:
-            newState = {...state}
+            newState = {...state, songs : {...state.songs}}
             newState.songs = action.payload
             return newState
         default:
