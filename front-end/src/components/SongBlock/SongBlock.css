@@ -10,7 +10,7 @@
     text-decoration: none;
     color: black;
     align-items: center;
-    background-color: #8D98A7;
+    background-color: #9F86C0;
 }
 
 .home_audio {
@@ -22,7 +22,7 @@
 }
 
 .audio__cont:hover {
-    background-color: lightgray;
+    background-color: #E0B1CB;
     cursor: pointer;
 }
 

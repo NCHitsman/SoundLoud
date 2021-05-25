@@ -31,12 +31,8 @@ export default function SongPage({ all }) {
                 Song Name: {song?.name}
             </div>
             <div className='textAlign'>
-                Artist: {song?.artist}
-            </div>
-            <div className='textAlign'>
-            {'Posted By: '}
                 <Link to={`/users/${song?.User.id}`}>
-                    {song?.User.username}
+                    {'Artist: '}{song?.User.username}
                 </Link>
             </div>
 

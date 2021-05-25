@@ -23,12 +23,12 @@ const SongBlock = ({ song, className, owned }) => {
                         </div>
                     </h2>
                     <div className='song__info__sub'>
-                        <div>
+                        {/* <div>
                             {'Views: '} {song?.views}
                         </div>
                         <div>
                             {'Category: '}{song?.Category?.name}
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

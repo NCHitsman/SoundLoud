@@ -20,14 +20,14 @@
     max-height: calc(100vh - 50px - 90px);
     overflow: auto;
     border-radius: 7px;
-    background-color: #DCCCBB;
+    background-color: #5E548E;
 }
 
 .title {
     min-width: 50%;
     border: 1px solid black;
     margin-top: 15px;
-    background-color: white;
+    background-color: #BE95C4;
 }
 
 h3 {
