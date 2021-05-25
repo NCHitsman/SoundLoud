@@ -85,6 +85,16 @@ export const deleteComment = (commentId) => async (dispatch) => {
     return response
 }
 
+export const deleteSong = (songId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/songs/delete/${songId}`, {
+        method: 'DELETE'
+    })
+    const data = await response.json()
+    dispatch(findSongs(data))
+    dispatch(findPopular(data))
+    return response
+}
+
 const songReducer = (state = {songs: {}, popular: {}}, action) => {
     let newState;
 

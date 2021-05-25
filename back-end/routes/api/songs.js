@@ -72,4 +72,14 @@ router.delete('/deleteComment/:commentId', asyncHandler( async (req, res) => {
     res.json(comments)
 }))
 
+router.delete('/delete/:songId', asyncHandler( async (req, res) => {
+    const { songId } = req.params
+    const song = await Song.findByPk(songId)
+
+    await song.destroy()
+
+    const songs = await Song.findAll()
+    res.json(songs)
+}))
+
 module.exports = router;

@@ -9,6 +9,7 @@ export default function UserPage() {
     const { userId } = useParams()
     const dispatch = useDispatch()
 
+    const currentUserId = useSelector(state => state.session.user.id)
 
     useEffect(() => {
         dispatch(findUser(userId))
@@ -22,18 +23,17 @@ export default function UserPage() {
 
     const songs = useSelector(state => state.userPage.songs)
 
-    console.log(songs)
-
-    //if current is equal to logged in, do extra
+    const loggedUser = userId == currentUserId
 
     return (
         <>
             <div>{user?.username}</div>
             {songs?.map(song => {
                 return (
-                    <SongBlock key={`${song.name}-`} song={song} className={'user__audio__cont'} />
+                    <SongBlock key={`${song.name}-`} song={song} className={'user__audio__cont'} owned={loggedUser} />
                 )
             })}
+
         </>
     )
 }
