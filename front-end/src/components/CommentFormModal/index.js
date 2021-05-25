@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import CommentForm from './CommentForm';
+import './CommentFormModal.css'
 
 function CommentFormModal({songId, userId, edit, commentId } ) {
   const [showModal, setShowModal] = useState(false);
@@ -9,9 +10,9 @@ function CommentFormModal({songId, userId, edit, commentId } ) {
   return (
     <>
       {edit ?
-      <button onClick={() => setShowModal(true)}>Edit Comment</button>
+      <button className='comment__button' onClick={() => setShowModal(true)}>Edit Comment</button>
       :
-      <button onClick={() => setShowModal(true)}>Write Comment</button>
+      <button className='comment__button' onClick={() => setShowModal(true)}>Write Comment</button>
       }
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>

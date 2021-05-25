@@ -1,0 +1,36 @@
+.comment__holder {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment__title{
+    min-width: 100%;
+}
+
+.class__ul {
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+.comment__li {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.textAlign {
+    text-align: center;
+}
+
+.comment__button {
+    margin: 5px
+}
+
+.audioHolder {
+    display: flex;
+    justify-content: center;
+}

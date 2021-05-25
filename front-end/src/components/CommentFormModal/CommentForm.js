@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createComment, editComment } from '../../store/songs'
+import './CommentFormModal.css'
 
 const CommentForm = ( {songId, userId, setShowModal, edit, commentId }) => {
     const dispatch = useDispatch();
@@ -33,12 +34,13 @@ const CommentForm = ( {songId, userId, setShowModal, edit, commentId }) => {
     }
 
     return (
-        <form onSubmit={edit ? handleSubmitEdit : handleSubmitNew}>
+        <form className='comment__form' onSubmit={edit ? handleSubmitEdit : handleSubmitNew}>
             <textarea
+                className='comment__edit__textarea'
                 value={text}
-                onChange={(e) => { setText(e.target.value) }}>
+                onChange={(e) => { setText(e.target.value) }}
                 required
-            </textarea>
+            ></textarea>
             <button type='submit'>Submit</button>
         </form>
     )
