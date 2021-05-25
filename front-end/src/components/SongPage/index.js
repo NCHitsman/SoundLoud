@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom'
 import { findSongComments, deleteComment } from '../../store/songs'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect} from 'react'
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import CommentFormModal from '../CommentFormModal/index'
 import './SongPage.css'
 
@@ -33,30 +34,34 @@ export default function SongPage({ all }) {
                 Artist: {song?.artist}
             </div>
             <div className='textAlign'>
-                Posted By: {song?.User.username}
+            {'Posted By: '}
+                <Link to={`/users/${song?.User.id}`}>
+                    {song?.User.username}
+                </Link>
             </div>
+
             <div className='audioHolder'>
                 <audio controls src={song?.link} />
             </div>
-            <div className = 'comment__holder'>
-            <h3 className='comment__title'>Comments:</h3>
-            <ul className='class__ul'>
-                {comments && Object.values(comments).map(comment => {
-                    return (
-                        <li className='comment__li' key={comment.id}>
-                            <div className='comment__container textAlign'>{comment.User.username} says: {comment.text}</div>
-                            <div className='textAlign'>Created On: {comment.createdAt.slice(0, 10)}</div>
-                            {userId === comment.User.id ?
-                            <>
-                                <CommentFormModal songId={songId} userId={userId} edit={true} commentId={comment.id}/>
-                                <button className='comment__button' onClick={(e) => commentDelete(comment.id)}>Delete Comment</button>
-                            </> :
-                            <div></div>}
-                        </li>
-                    )
-                })}
-            </ul>
-            {userId && <CommentFormModal songId={songId} userId={userId} edit={false} commentId={false}/>}
+            <div className='comment__holder'>
+                <h3 className='comment__title'>Comments:</h3>
+                <ul className='class__ul'>
+                    {comments && Object.values(comments).map(comment => {
+                        return (
+                            <li className='comment__li' key={comment.id}>
+                                <div className='comment__container textAlign'>{comment.User.username} says: {comment.text}</div>
+                                <div className='textAlign'>Created On: {comment.createdAt.slice(0, 10)}</div>
+                                {userId === comment.User.id ?
+                                    <>
+                                        <CommentFormModal songId={songId} userId={userId} edit={true} commentId={comment.id} />
+                                        <button className='comment__button' onClick={(e) => commentDelete(comment.id)}>Delete Comment</button>
+                                    </> :
+                                    <div></div>}
+                            </li>
+                        )
+                    })}
+                </ul>
+                {userId && <CommentFormModal songId={songId} userId={userId} edit={false} commentId={false} />}
             </div>
         </>
     )

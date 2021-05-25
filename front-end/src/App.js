@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import Home from './components/Home'
 import { findAllSongs, findPopularSongs } from './store/songs'
 import SongPage from './components/SongPage'
+import UserPage from './components/UserPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           </Route>
           <Route exact path='/songs/:songId'>
             <SongPage all={all} />
+          </Route>
+          <Route exact path='/users/:userId'>
+            <UserPage />
           </Route>
           <Route exact path='/'>
             <Home all={all} popular={popular} />

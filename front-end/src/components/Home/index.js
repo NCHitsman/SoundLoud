@@ -1,5 +1,6 @@
 import './Home.css'
 import { Link } from 'react-router-dom'
+import SongBlock from '../SongBlock'
 
 
 export default function Home({ all, popular }) {
@@ -12,10 +13,7 @@ export default function Home({ all, popular }) {
                 </div>
                 {Object.values(all).map(song => {
                     return (
-                        <Link className='audio__cont' key={`${song.name}-`} to={`/songs/${song.id}`}>
-                            <h4>{song.name}</h4>
-                            <audio controls src={song.link} />
-                        </Link>
+                        <SongBlock key={`${song.name}-`} song={song} className={'audio__cont'} />
                     )
                 })}
             </div>
@@ -25,11 +23,7 @@ export default function Home({ all, popular }) {
                 </div>
                 {Object.values(popular).map(song => {
                     return (
-                        <Link className='audio__cont' key={`${song.name}+`} to={`/songs/${song.id}`}>
-                            <h4>{song.name}</h4>
-                            <h5>Views: {song.views}</h5>
-                            <audio controls src={song.link} />
-                        </Link>
+                        <SongBlock key={`${song.name}-`} song={song} className={'audio__cont'} />
                     )
                 })}
             </div>
