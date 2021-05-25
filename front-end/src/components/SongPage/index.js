@@ -1,15 +1,17 @@
 import { useParams } from 'react-router-dom'
 import { findSongComments, deleteComment } from '../../store/songs'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CommentFormModal from '../CommentFormModal/index'
 import './SongPage.css'
 import SongBlock from '../SongBlock'
+import { createComment } from '../../store/songs'
 
 export default function SongPage({ all }) {
     const { songId } = useParams()
     const dispatch = useDispatch()
+    const [text, setText] = useState("");
 
 
     useEffect(() => {
@@ -25,6 +27,19 @@ export default function SongPage({ all }) {
     const commentDelete = (commentId) => {
         dispatch(deleteComment(commentId))
     }
+
+    const handleSubmitNew = async (e) => {
+        e.preventDefault();
+
+        const payload = {
+            text,
+            userId: userId,
+            songId: songId,
+        }
+
+        await dispatch(createComment(payload, songId));
+
+    };
 
     return (
         <div className='songPage'>
@@ -58,7 +73,6 @@ export default function SongPage({ all }) {
 
                         <h3 className='comment__title'>Comments:</h3>
                         <div className=''>
-                            {userId && <CommentFormModal songId={songId} userId={userId} edit={false} commentId={false} />}
                             {comments && Object.values(comments).map(comment => {
                                 return (
                                     <div className='comment__li' key={comment.id}>
@@ -77,6 +91,19 @@ export default function SongPage({ all }) {
 
                     </div>
 
+                </div>
+
+
+                <div className='write__comment__cont'>
+                    {userId && <form className='songPage__comment__form' onSubmit={handleSubmitNew}>
+                        <textarea
+                            className='songPage__comment__textarea'
+                            value={text}
+                            onChange={(e) => { setText(e.target.value) }}
+                            required
+                        ></textarea>
+                        <button className='songPage__comment__button' type='submit'>Submit</button>
+                    </form>}
                 </div>
 
             </div>
