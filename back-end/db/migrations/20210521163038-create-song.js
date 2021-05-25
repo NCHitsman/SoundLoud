@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING(100),
+        type: Sequelize.STRING(300),
         allowNull: false,
       },
       link: {
@@ -29,6 +29,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {model: 'Categories'}
+      },
+      cover: {
+        type: Sequelize.STRING(300),
+        allowNull: true
       },
       createdAt: {
         allowNull: false,

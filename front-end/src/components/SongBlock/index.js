@@ -11,7 +11,7 @@ const SongBlock = ({ song, className, owned }) => {
 
     return (
         <Link className={`audio__cont ${className}`} to={`/songs/${song.id}`}>
-            <img className='s__logo' src='/soundcloudlogo.png'></img>
+            <img className='s__logo' alt='song cover' src={song.cover ? song.cover : '/soundcloudlogo.png'}></img>
             <div>
                 <div className='song__info'>
                     <h2 className='song__info__title'>{song?.name}
