@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect} from 'react'
+import { useEffect } from 'react'
 import './UserPage.css'
 import { findUser, findUserSongs } from '../../store/user'
 import SongBlock from '../SongBlock'
@@ -17,6 +17,7 @@ export default function UserPage() {
 
     const user = useSelector(state => state.userPage.user)
 
+
     useEffect(() => {
         dispatch(findUserSongs(userId))
     }, [dispatch, userId])
@@ -30,7 +31,7 @@ export default function UserPage() {
             <div>{user?.id === +userId && user?.username}</div>
             {user?.id === +userId && songs?.map(song => {
                 return (
-                    <SongBlock key={`${song.name}-`} song={song} className={'user__audio__cont'} owned={loggedUser} />
+                    <SongBlock key={`${song.name}-`} song={song} className={'user_audio'} owned={loggedUser} />
                 )
             })}
 

@@ -12,7 +12,7 @@ export default function Home({ all, popular }) {
                 </div>
                 {Object.values(all).map(song => {
                     return (
-                        <SongBlock key={`${song.name}-`} song={song} className={'audio__cont'} />
+                        <SongBlock key={`${song.name}-`} song={song} className={'home_audio'} />
                     )
                 })}
             </div>
@@ -22,7 +22,7 @@ export default function Home({ all, popular }) {
                 </div>
                 {Object.values(popular).map(song => {
                     return (
-                        <SongBlock key={`${song.name}-`} song={song} className={'audio__cont'} />
+                        <SongBlock key={`${song.name}-`} song={song} className={'home_audio'} />
                     )
                 })}
             </div>

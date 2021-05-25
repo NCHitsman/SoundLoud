@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Song } = require('../../db/models');
+const { User, Song, Category } = require('../../db/models');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
@@ -51,7 +51,7 @@ router.get('/:userId', asyncHandler( async (req, res) => {
 
 router.get('/songs/:userId', asyncHandler( async (req, res) => {
     const { userId } = req.params
-    const songs = await Song.findAll({where: {createdBy: userId}})
+    const songs = await Song.findAll({where: {createdBy: userId}, include: [User, Category]})
     res.json(songs)
 }))
 

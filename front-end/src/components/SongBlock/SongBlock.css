@@ -1,17 +1,37 @@
 .audio__cont {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
     border: 1px solid black;
     padding: 15px;
     margin-top: 15px;
     border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+}
+
+.home_audio {
     min-width: 150%;
+}
+
+.user_audio {
+    min-width: 100%;
 }
 
 .audio__cont:hover {
     background-color: lightgray;
     cursor: pointer;
+}
+
+.song__creator{
+    text-decoration: none;
+    color: black;
+}
+
+
+.s__logo{
+    max-height: 150px;
+    max-width: 150px;
 }
