@@ -16,10 +16,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      artist: {
-        type: Sequelize.STRING(100),
-        allowNull: false,
-      },
       createdBy: {
         type: Sequelize.INTEGER,
         allowNull: false,

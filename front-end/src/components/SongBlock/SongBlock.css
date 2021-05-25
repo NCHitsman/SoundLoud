@@ -10,6 +10,7 @@
     text-decoration: none;
     color: black;
     align-items: center;
+    background-color: #8D98A7;
 }
 
 .home_audio {
@@ -34,4 +35,30 @@
 .s__logo{
     max-height: 150px;
     max-width: 150px;
+}
+
+.song__info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 500px
+}
+
+.audio__bar{
+    min-width: 500px;
+}
+
+.song__info__title{
+    max-width: 330px;
+}
+
+.song__info__artist{
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.song__info__sub{
+    max-width: 160px;
+    min-width: 160px;
 }
