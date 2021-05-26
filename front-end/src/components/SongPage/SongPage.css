@@ -37,8 +37,8 @@
 }
 
 .song__comment__cont{
-    max-height: 66.3%;
-    min-height: 66.3%;
+    max-height: 58%;
+    min-height: 58%;
     overflow: auto;
     background-color: #E0B1CB;
     border-radius: 10px;
@@ -53,6 +53,8 @@
     margin-right: 20px;
     margin-left: 20px;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    border: 1px solid black;
 }
 
 .songPage__audio{
@@ -144,4 +146,15 @@
 
 .comment__buttons{
     text-align: center;
+}
+
+.song__title__artist{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#songPage__img{
+    margin-right: 15px;
+    margin-bottom: 10px;
 }

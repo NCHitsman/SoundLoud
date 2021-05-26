@@ -12,7 +12,7 @@ import { createComment } from '../../store/songs'
 export default function SongPage({ all }) {
     const { songId } = useParams()
     const dispatch = useDispatch()
-    const [text, setText] = useState(null);
+    const [text, setText] = useState(undefined);
 
 
     useEffect(() => {
@@ -51,6 +51,8 @@ export default function SongPage({ all }) {
 
                     <div className='song__title__artist'>
 
+                        <img alt='song cover' id='songPage__img' className='s__logo' src={song?.cover}></img>
+
                         <div className='textAlign songPage__info__title'>
                             {song?.name}
                             <div className='textAlign'>
@@ -73,7 +75,6 @@ export default function SongPage({ all }) {
 
                     <div className='comment__holder'>
 
-                        <h3 className='comment__title'>Comments:</h3>
                         <div className='li__comment__holder'>
                             {comments && Object.values(comments).map(comment => {
                                 return (

@@ -11,6 +11,7 @@
     color: black;
     align-items: center;
     background-color: #9F86C0;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
 }
 
 .home_audio {
