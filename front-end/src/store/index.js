@@ -3,13 +3,11 @@ import thunk from "redux-thunk";
 import sessionReducer from './session';
 import songReducer from './songs';
 import userReducer from './user'
-import imagesReducer from './images'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   music: songReducer,
   userPage: userReducer,
-  images: imagesReducer,
 });
 
 let enhancer;

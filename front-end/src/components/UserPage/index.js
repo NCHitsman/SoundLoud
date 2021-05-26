@@ -24,12 +24,14 @@ export default function UserPage() {
 
     const songs = useSelector(state => state.userPage.songs)
 
+    console.log('songs>>>', songs)
+
     const loggedUser = +userId === currentUserId
 
     return (
         <>
             <div>{user?.id === +userId && user?.username}</div>
-            {user?.id === +userId && songs?.map(song => {
+            {user?.id === +userId && songs && Object.values(songs).map(song => {
                 return (
                     <SongBlock key={`${song.name}-`} song={song} className={'user_audio'} owned={loggedUser} />
                 )
