@@ -23,6 +23,7 @@ const setImage = (song) => ({
     payload: song,
 });
 
+
 export const uploadImage = (imageData, userId, songId) => async (dispatch) => {
     const formData = new FormData();
     formData.append("image", imageData);
@@ -38,6 +39,23 @@ export const uploadImage = (imageData, userId, songId) => async (dispatch) => {
     const data = await res.json();
     dispatch(setImage(data));
 };
+
+export const uploadSong = (SongData, userId, name) => async (dispatch) => {
+    const formData = new FormData();
+    formData.append("song", SongData);
+    formData.append("userId", userId);
+    formData.append('name', name)
+    const res = await csrfFetch('/api/songs/upload', {
+        method: "POST",
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+        body: formData,
+    });
+    const data = await res.json();
+    dispatch(findAUsersSongs(data));
+};
+
 
 export const findUser = (userId) => async (dispatch) => {
     const response = await csrfFetch(`/api/users/${userId}`)

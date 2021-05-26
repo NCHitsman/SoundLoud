@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 import './UserPage.css'
 import { findUser, findUserSongs } from '../../store/user'
 import SongBlock from '../SongBlock'
+import SongUpload from '../SongUpload'
 
 export default function UserPage() {
     const { userId } = useParams()
@@ -29,14 +30,17 @@ export default function UserPage() {
     const loggedUser = +userId === currentUserId
 
     return (
-        <>
+        <div className='Userpage__cont'>
             <div>{user?.id === +userId && user?.username}</div>
+            <div>Upload A Song:
+            <SongUpload />
+            </div>
             {user?.id === +userId && songs && Object.values(songs).map(song => {
                 return (
                     <SongBlock key={`${song.name}-`} song={song} className={'user_audio'} owned={loggedUser} />
                 )
             })}
 
-        </>
+        </div>
     )
 }

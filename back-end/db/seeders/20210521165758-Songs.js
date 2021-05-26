@@ -13,7 +13,7 @@ module.exports = {
       updatedAt: new Date()
     },{
       name: 'skinz',
-      link: 'https://res.cloudinary.com/hitsman/image/upload/v1621980516/12f5bdef38f33aa19150a69ffedec203.500x500x1_pixqfh.jpg',
+      link: 'https://res.cloudinary.com/hitsman/video/upload/v1621871216/8485_-_skinz_prod._powerdoll_ufatss.mp3',
       createdBy: 2,
       views: 136,
       category: 1,
