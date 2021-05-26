@@ -25,22 +25,25 @@ export default function UserPage() {
 
     const songs = useSelector(state => state.userPage.songs)
 
-    console.log('songs>>>', songs)
-
     const loggedUser = +userId === currentUserId
+
 
     return (
         <div className='Userpage__cont'>
-            <div>{user?.id === +userId && user?.username}</div>
-            <div>Upload A Song:
-            <SongUpload />
+            <div className='user__info__cont'>
+                <div>{user?.id === +userId && user?.username}</div>
+                {loggedUser && <div className='user__upload__cont'>
+                    <div>Upload A Song:</div>
+                    <SongUpload />
+                </div>}
             </div>
-            {user?.id === +userId && songs && Object.values(songs).map(song => {
-                return (
-                    <SongBlock key={`${song.name}-`} song={song} className={'user_audio'} owned={loggedUser} />
-                )
-            })}
-
+            <div className='Userpage__songs__cont'>
+                {user?.id === +userId && songs && Object.values(songs).map(song => {
+                    return (
+                        <SongBlock key={`${song.name}-`} song={song} className={'user_audio'} owned={loggedUser} />
+                    )
+                })}
+            </div>
         </div>
     )
 }

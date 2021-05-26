@@ -11,7 +11,7 @@ const SongBlock = ({ song, className, owned }) => {
     const dispatch = useDispatch()
 
     return (
-        <>
+        <div className='parent__audio__cont'>
             <Link className={`audio__cont ${className}`} to={`/songs/${song.id}`}>
                 <img className='s__logo' alt='song cover' src={song.cover ? song.cover : '/soundcloudlogo.png'}></img>
                 <div>
@@ -36,14 +36,16 @@ const SongBlock = ({ song, className, owned }) => {
 
                     <audio className='audio__bar' controls src={song.link} />
                 </div>
+            </Link>
+            <div className='user__song__func__buttons'>
                 {owned && <button onClick={async (e) => {
                     e.preventDefault();
                     await dispatch(deleteSong(song.id));
                     await dispatch(findUserSongs(song.createdBy))
                 }}>Delete Song</button>}
-            </Link>
-            {owned && <ImageUpload songId={song.id} />}
-        </>
+                {owned && <ImageUpload songId={song.id} />}
+            </div>
+        </div>
     )
 }
 

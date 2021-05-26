@@ -8,6 +8,7 @@ import Home from './components/Home'
 import { findAllSongs, findPopularSongs } from './store/songs'
 import SongPage from './components/SongPage'
 import UserPage from './components/UserPage'
+import SongBlock from './components/SongBlock'
 
 function App() {
   const dispatch = useDispatch();
@@ -32,22 +33,36 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route exact path="/signup">
-            <SignupFormPage />
-          </Route>
-          <Route exact path='/songs/:songId'>
-            <SongPage all={all} />
-          </Route>
-          <Route exact path='/users/:userId'>
-            <UserPage />
-          </Route>
-          <Route exact path='/'>
-            <Home all={all} popular={popular} />
-          </Route>
-        </Switch>
-      )}
+      <div className='body__cont'>
+        <div className='page__contents'>
+          {isLoaded && (
+            <Switch>
+              <Route exact path="/signup">
+                <SignupFormPage />
+              </Route>
+              <Route exact path='/songs/:songId'>
+                <SongPage all={all} />
+              </Route>
+              <Route exact path='/users/:userId'>
+                <UserPage />
+              </Route>
+              <Route exact path='/'>
+                <Home all={all} popular={popular} />
+              </Route>
+            </Switch>
+          )}
+        </div>
+        <div className='song__sidebar__cont'>
+          <div className='sidebare__title__cont'>
+            <div id='sidebare__title'>All Songs</div>
+          </div>
+          {Object.values(all).map(song => {
+            return (
+              <SongBlock key={`${song.name}-`} song={song} />
+            )
+          })}
+        </div>
+      </div>
     </>
   );
 }

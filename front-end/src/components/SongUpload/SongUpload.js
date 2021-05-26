@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { uploadSong } from '../../store/user';
+import {findAllSongs} from '../../store/songs'
 
 const SongUpload = () => {
   const dispatch = useDispatch();
@@ -16,15 +17,16 @@ const SongUpload = () => {
     setSong(e.target.files[0]);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    dispatch(uploadSong(song, user.id, name));
+    await dispatch(uploadSong(song, user.id, name));
+    dispatch(findAllSongs())
   };
 
   return (
     <>
       <form onSubmit={submitHandler}>
-        <label for='name__input'>Title:</label>
+        <label htmlFor='name__input'>Title:</label>
         <input type='text' id='name__input' value={name} onChange={(e) => {setName(e.target.value)}}/>
         <input
           type="file"

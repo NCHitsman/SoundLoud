@@ -119,16 +119,6 @@ export default function SongPage({ all }) {
                 </div>
 
             </div>
-            <div className='all__container cont' id='songPage-all-cont'>
-                <div className='title'>
-                    <h3>All Songs:</h3>
-                </div>
-                {Object.values(all).map(song => {
-                    return (
-                        <SongBlock key={`${song.name}-`} song={song} className={'song_audio'} />
-                    )
-                })}
-            </div>
         </div>
     )
 }

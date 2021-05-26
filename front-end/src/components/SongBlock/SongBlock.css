@@ -5,22 +5,17 @@
     flex-direction: row;
     border: 1px solid black;
     padding: 15px;
-    margin-top: 15px;
+    margin-bottom: 15px;
     border-radius: 5px;
     text-decoration: none;
     color: black;
     align-items: center;
     background-color: #9F86C0;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    min-width: 42rem;
+    max-width: 42rem;
 }
 
-.home_audio {
-    min-width: 150%;
-}
-
-.user_audio {
-    min-width: 100%;
-}
 
 .audio__cont:hover {
     background-color: #E0B1CB;
@@ -64,4 +59,17 @@
 .song__info__sub{
     max-width: 160px;
     min-width: 160px;
+}
+
+.user__song__func__buttons{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.parent__audio__cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100%;
 }
