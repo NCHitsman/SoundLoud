@@ -11,7 +11,7 @@ import { createComment } from '../../store/songs'
 export default function SongPage({ all }) {
     const { songId } = useParams()
     const dispatch = useDispatch()
-    const [text, setText] = useState("");
+    const [text, setText] = useState(null);
 
 
     useEffect(() => {
@@ -39,6 +39,7 @@ export default function SongPage({ all }) {
 
         await dispatch(createComment(payload, songId));
 
+        setText('')
     };
 
     return (
@@ -72,18 +73,26 @@ export default function SongPage({ all }) {
                     <div className='comment__holder'>
 
                         <h3 className='comment__title'>Comments:</h3>
-                        <div className=''>
+                        <div className='li__comment__holder'>
                             {comments && Object.values(comments).map(comment => {
                                 return (
                                     <div className='comment__li' key={comment.id}>
-                                        <div className='comment__container textAlign'>{comment.User.username} says: {comment.text}</div>
-                                        <div className='textAlign'>Created On: {comment.createdAt.slice(0, 10)}</div>
-                                        {userId === comment.User.id ?
-                                            <>
-                                                <CommentFormModal songId={songId} userId={userId} edit={true} commentId={comment.id} />
-                                                <button className='comment__button' onClick={(e) => commentDelete(comment.id)}>Delete Comment</button>
-                                            </> :
-                                            <div></div>}
+                                        <div className='comment__container comment_text'>{comment.text}</div>
+
+                                        <div className='comment__info__cont'>
+                                            <Link className='comment__info__box comment__author' to={`/Users/${comment.User.id}`}>{comment.User.username}</Link>
+
+                                            {userId === comment.User.id ? //buttons
+                                                <div className='comment__info__box comment__buttons'>
+                                                    <CommentFormModal songId={songId} userId={userId} edit={true} commentId={comment.id} />
+                                                    <button className='comment__button' onClick={(e) => commentDelete(comment.id)}>Delete Comment</button>
+                                                </div> :
+                                                <div></div>
+                                            }
+
+
+                                            <div className='comment__info__box comment__createdOn'>Created On: {comment.createdAt.slice(0, 10)}</div>
+                                        </div>
                                     </div>
                                 )
                             })}
@@ -101,6 +110,7 @@ export default function SongPage({ all }) {
                             value={text}
                             onChange={(e) => { setText(e.target.value) }}
                             required
+                            placeholder='Write your comment here'
                         ></textarea>
                         <button className='songPage__comment__button' type='submit'>Submit</button>
                     </form>}

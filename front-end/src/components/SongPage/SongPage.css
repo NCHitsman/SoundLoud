@@ -37,19 +37,19 @@
 }
 
 .song__comment__cont{
-    max-height: 65%;
-    min-height: 65%;
+    max-height: 66.3%;
+    min-height: 66.3%;
     overflow: auto;
     background-color: #E0B1CB;
     border-radius: 10px;
-    border: 1px solid black
+    border: 1px solid black;
+    margin-top: 5px;
 }
 
 
 .comment__li {
     background-color: #9F86C0;
     margin-top: 10px;
-    text-align: center;
     margin-right: 20px;
     margin-left: 20px;
     border-radius: 10px;
@@ -74,11 +74,12 @@
 .write__comment__cont{
     min-width: 100%;
     max-width: 100%;
-    min-height: 17%;
-    max-height: 17%;
+    min-height: 15%;
+    max-height: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 3px
 }
 
 .songPage__comment__form{
@@ -91,14 +92,56 @@
 }
 
 .songPage__comment__textarea{
-    min-width: 100%;
+    min-width: 90%;
     min-height: 65px;
     background-color: rgba(0,0,0,0.3);
     border-radius: 10px;
-    border: 1px solid black
+    border: 1px solid black;
+    font-size: 18px;
 }
 
 .songPage__comment__button{
     font-size: 18px;
     margin-top: 8px
+}
+
+.comment_text{
+    font-size: 26px;
+    margin: 5px;
+    text-align: center;
+}
+
+::placeholder{
+    color:black;
+    font-size: 18px;
+}
+
+.li__comment__holder{
+    padding-bottom: 10px;
+}
+
+.comment__info__cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.comment__info__box{
+    min-width: 33%;
+    max-width: 33%;
+}
+
+.comment__author{
+    text-decoration: none;
+    color: black;
+}
+
+.comment__createdOn{
+    text-align: end;
+}
+
+.comment__buttons{
+    text-align: center;
 }
