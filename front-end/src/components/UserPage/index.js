@@ -4,13 +4,12 @@ import { useEffect } from 'react'
 import './UserPage.css'
 import { findUser, findUserSongs } from '../../store/user'
 import SongBlock from '../SongBlock'
-import SongUpload from '../SongUpload'
 
 export default function UserPage() {
     const { userId } = useParams()
     const dispatch = useDispatch()
 
-    const currentUserId = useSelector(state => state.session.user.id)
+    const currentUserId = useSelector(state => state.session?.user?.id)
 
     useEffect(() => {
         dispatch(findUser(userId))
@@ -29,21 +28,17 @@ export default function UserPage() {
 
 
     return (
-        <div className='Userpage__cont'>
-            <div className='user__info__cont'>
-                <div>{user?.id === +userId && user?.username}</div>
-                {loggedUser && <div className='user__upload__cont'>
-                    <div>Upload A Song:</div>
-                    <SongUpload />
-                </div>}
+        <>
+            <div className='home__title__cont'>
+                <div className='home__title'>{user?.id === +userId && user?.username}</div>
             </div>
-            <div className='Userpage__songs__cont'>
-                {user?.id === +userId && songs && Object.values(songs).map(song => {
-                    return (
-                        <SongBlock key={`${song.name}-`} song={song} className={'user_audio'} owned={loggedUser} />
-                    )
-                })}
-            </div>
-        </div>
+
+            {user?.id === +userId && songs && Object.values(songs).map(song => {
+                return (
+                    <SongBlock key={`${song.name}-`} song={song} className={'user_audio'} owned={loggedUser} />
+                )
+            })}
+
+        </>
     )
 }

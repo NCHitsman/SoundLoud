@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import {findAllSongs} from '../../store/songs'
 import { uploadImage } from '../../store/user';
 
-const ImageUpload = ({songId}) => {
+
+const ImageUpload = ({songId, setShowModal}) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [image, setImage] = useState();
@@ -14,9 +15,11 @@ const ImageUpload = ({songId}) => {
     setImage(e.target.files[0]);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    dispatch(uploadImage(image, user.id, songId));
+    await dispatch(uploadImage(image, user.id, songId));
+    await dispatch(findAllSongs())
+    setShowModal(false)
   };
 
   return (
@@ -25,8 +28,9 @@ const ImageUpload = ({songId}) => {
         <input
           type="file"
           onChange={updateImage}
+          onClick={(e) => e.stopPropagation()}
         />
-        <button type="submit">Upload</button>
+        <button type="submit" onClick={(e) => {e.stopPropagation()}}>Upload</button>
       </form>
     </>
   );

@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CommentFormModal from '../CommentFormModal/index'
 import './SongPage.css'
-import SongBlock from '../SongBlock'
 import { createComment } from '../../store/songs'
 
 
@@ -13,6 +12,7 @@ export default function SongPage({ all }) {
     const { songId } = useParams()
     const dispatch = useDispatch()
     const [text, setText] = useState(undefined);
+    let commentClass = ''
 
 
     useEffect(() => {
@@ -24,6 +24,12 @@ export default function SongPage({ all }) {
     const comments = useSelector(state => state.music.comments)
 
     const userId = useSelector(store => store.session.user ? store.session.user.id : false)
+
+    if (userId) {
+        commentClass = 'comment__size__short'
+    } else {
+        commentClass = 'comment__size__long'
+    }
 
     const commentDelete = (commentId) => {
         dispatch(deleteComment(commentId))
@@ -71,7 +77,7 @@ export default function SongPage({ all }) {
 
                 </div>
 
-                <div className='song__comment__cont'>
+                <div className={'song__comment__cont '+commentClass}>
 
                     <div className='comment__holder'>
 

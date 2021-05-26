@@ -3,7 +3,7 @@
 }
 
 .songPage__cont{
-    min-width: 96%;
+    max-width: 98%;
     min-height: calc(100vh - 50px - 126px);
     max-height: calc(100vh - 50px - 126px);
     border: 1px solid black;
@@ -21,10 +21,6 @@
     padding-bottom: 15px;
 }
 
-.song_audio{
-    min-width: 165%;
-}
-
 .song__info__cont{
     min-height: 20%;
     display: flex;
@@ -36,8 +32,6 @@
 }
 
 .song__comment__cont{
-    max-height: 55%;
-    min-height: 55%;
     overflow: auto;
     background-color: #E0B1CB;
     border-radius: 10px;
@@ -57,7 +51,7 @@
 }
 
 .songPage__audio{
-    min-width: 1025px;
+    min-width: 825px;
 }
 
 .songPage__info__title{
@@ -156,4 +150,14 @@
 #songPage__img{
     margin-right: 15px;
     margin-bottom: 10px;
+}
+
+.comment__size__long{
+    max-height: 70%;
+    min-height: 70%;
+}
+
+.comment__size__short{
+    max-height: 55%;
+    min-height: 55%;
 }

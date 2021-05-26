@@ -1,6 +1,6 @@
 .audio__cont {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: nowrap;
     flex-direction: row;
     border: 1px solid black;
@@ -12,8 +12,8 @@
     align-items: center;
     background-color: #9F86C0;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
-    min-width: 42rem;
-    max-width: 42rem;
+    min-width: 49rem;
+    max-width: 49rem;
 }
 
 
@@ -33,26 +33,29 @@
     max-width: 150px;
     border-radius: 8px;
     border: 1px solid black;
+    margin-right: 20px;
 }
 
 .song__info{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    min-width: 500px
+    align-items: flex-start;
+    min-height: 120px;
 }
 
 .audio__bar{
-    min-width: 500px;
+    min-width: 600px;
 }
 
 .song__info__title{
-    max-width: 330px;
+    max-width: 90%;
+    font-size: 32px;
+    font-weight: bold;
 }
 
 .song__info__artist{
-    font-size: 18px;
+    font-size: 22px;
     font-weight: normal;
 }
 
@@ -63,8 +66,9 @@
 
 .user__song__func__buttons{
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
+    margin-top: 6px
 }
 
 .parent__audio__cont{

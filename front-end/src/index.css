@@ -1,5 +1,6 @@
 body {
     background-color: #231942;
+    font-family: overpass;
 }
 
 /* .section__container {
@@ -30,7 +31,7 @@ body {
 
 .song__sidebar__cont{
     background-color: #5E548E;
-    width: 40%;
+    width: 49.5%;
     max-height: calc(100vh - 50px - 55px);
     overflow: auto;
     margin-top: 15px;
@@ -43,9 +44,9 @@ body {
 
 .page__contents{
     background-color: #5E548E;
-    width: 59%;
+    width: 49.5%;
     max-height: calc(100vh - 50px - 55px);
-    overflow: auto;
+    overflow:auto;
     margin-top: 15px;
     border-radius: 6px;
     display: flex;
@@ -88,5 +89,5 @@ body {
 
 @font-face {
     font-family: overpass;
-    src: url();
-  }
+    src: url('./fonts/Overpass-Light.ttf');
+}

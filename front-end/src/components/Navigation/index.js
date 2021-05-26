@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import SongUpload from '../SongUpload'
 
-function Navigation({ isLoaded }){
+function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
   let sessionLinks;
@@ -24,8 +25,12 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='nav__cont'>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
+      <NavLink exact to="/">Home</NavLink>
+      {sessionUser && <div className='user__upload__cont'>
+        <div>Upload A Song:</div>
+        <SongUpload />
+      </div>}
+      {isLoaded && sessionLinks}
     </div>
   );
 }
