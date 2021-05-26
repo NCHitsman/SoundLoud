@@ -27,7 +27,6 @@ function Navigation({ isLoaded }) {
     <div className='nav__cont'>
       <NavLink exact to="/">Home</NavLink>
       {sessionUser && <div className='user__upload__cont'>
-        <div>Upload A Song:</div>
         <SongUpload />
       </div>}
       {isLoaded && sessionLinks}

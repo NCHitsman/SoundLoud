@@ -23,7 +23,7 @@ const SongBlock = ({ song, className, owned }) => {
                                 e.preventDefault()
                                 history.push(`/Users/${song.User.id}`)
                             }}>
-                                {song?.User.username}
+                                {song?.User?.username}
                             </div>
                         </div>
                         <div className='song__info__sub'>

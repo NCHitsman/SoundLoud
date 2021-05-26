@@ -1,37 +1,26 @@
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {findAllSongs} from '../../store/songs'
-import { uploadSong } from '../../store/user';
+import React, { useState } from 'react';
+import { Modal } from '../../context/Modal';
+import SongUpload from './SongUpload';
 
+function SongUploadModal({songId}) {
+    const [showSongModal, setShowSongModal] = useState(false);
 
-const SongUpload = ({songId}) => {
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
-  const [song, setSong] = useState();
+    return (
+        <>
+            <button onClick={(e) => {
+                e.preventDefault()
+                setShowSongModal(true)
+            }}>Upload New Song</button>
+            {showSongModal && (
+                <Modal onClose={(e) => {
+                    e.preventDefault()
+                    setShowSongModal(false)
+                }}>
+                    <SongUpload songId={songId} setShowSongModal={setShowSongModal} />
+                </Modal>
+            )}
+        </>
+    );
+}
 
-  if (!user) return null;
-
-  const updateSong = (e) => {
-    setSong(e.target.files[0]);
-  };
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    await dispatch(uploadSong(song, user.id, songId));
-    dispatch(findAllSongs())
-  };
-
-  return (
-    <>
-      <form onSubmit={submitHandler}>
-        <input
-          type="file"
-          onChange={updateSong}
-        />
-        <button type="submit">Upload</button>
-      </form>
-    </>
-  );
-};
-
-export default SongUpload;
+export default SongUploadModal;

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { uploadSong } from '../../store/user';
 import {findAllSongs} from '../../store/songs'
 
-const SongUpload = () => {
+const SongUpload = ({setShowSongModal}) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [song, setSong] = useState();
