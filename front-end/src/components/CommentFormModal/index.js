@@ -5,7 +5,6 @@ import './CommentFormModal.css'
 
 function CommentFormModal({songId, userId, edit, commentId, commentText } ) {
   const [showModal, setShowModal] = useState(false);
-  console.log(edit)
 
   return (
     <>

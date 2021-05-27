@@ -33,8 +33,6 @@ const CommentForm = ({ songId, userId, setShowModal, edit, commentId, commentTex
         setShowModal(false)
     }
 
-    console.log(commentText)
-
     return (
         <div className='form__cont modal__form'>
             <form className='form' onSubmit={edit ? handleSubmitEdit : handleSubmitNew}>
