@@ -120,7 +120,7 @@ export default function SongPage({ all }) {
                             required
                             placeholder='Write your comment here'
                         ></textarea>
-                        <button className='songPage__comment__button' type='submit'>Submit</button>
+                        <button style={{backgroundColor: '#9F86C0'}} className='songPage__comment__button' type='submit'>Submit</button>
                     </form>}
                 </div>
 

@@ -1,14 +1,23 @@
 .nav__cont {
     background-color: #BE95C4;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 6px;
 }
 
 .profile-dropdown {
     position: absolute;
-    left: 81%;
+    left: 83%;
+}
+
+.nav__button__cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 33%;
+    max-width: 33%;
 }

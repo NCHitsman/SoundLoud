@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { uploadSong } from '../../store/user';
-import {findAllSongs} from '../../store/songs'
+import { findAllSongs } from '../../store/songs'
 
-const SongUpload = ({setShowSongModal}) => {
+const SongUpload = ({ setShowSongModal }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [song, setSong] = useState();
@@ -24,17 +24,21 @@ const SongUpload = ({setShowSongModal}) => {
   };
 
   return (
-    <>
-      <form onSubmit={submitHandler}>
-        <label htmlFor='name__input'>Title:</label>
-        <input type='text' id='name__input' value={name} onChange={(e) => {setName(e.target.value)}}/>
-        <input
-          type="file"
-          onChange={updateSong}
-        />
-        <button type="submit">Upload</button>
+    <div className='form__cont modal__form'>
+      <form className='form' onSubmit={submitHandler}>
+        <div className='form__input__cont modal__form__input__cont'>Title:
+        <input className='form__input' type='text' id='name__input' value={name} onChange={(e) => { setName(e.target.value) }} />
+        </div>
+        <div className='form__input__cont modal__form__input__cont'>Upload Song:
+          <input
+            className='form__input doc__input'
+            type="file"
+            onChange={updateSong}
+          />
+        </div>
+        <button style={{backgroundColor: '#9F86C0'}} type="submit">Upload</button>
       </form>
-    </>
+    </div>
   );
 };
 

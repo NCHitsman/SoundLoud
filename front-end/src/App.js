@@ -9,6 +9,7 @@ import { findAllSongs, findPopularSongs } from './store/songs'
 import SongPage from './components/SongPage'
 import UserPage from './components/UserPage'
 import SongBlock from './components/SongBlock'
+import LoginFormPage from './components/LoginFormPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,9 @@ function App() {
         <div className='page__contents'>
           {isLoaded && (
             <Switch>
+              <Route exact path="/login">
+                <LoginFormPage />
+              </Route>
               <Route exact path="/signup">
                 <SignupFormPage />
               </Route>

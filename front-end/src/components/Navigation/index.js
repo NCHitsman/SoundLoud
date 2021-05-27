@@ -5,30 +5,48 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import SongUpload from '../SongUpload'
+import { useHistory } from 'react-router-dom'
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
+  const history = useHistory()
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <div className='nav__button__cont'>
+        <ProfileButton user={sessionUser} />
+      </div>
     );
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <div className='nav__button__cont'>
+          <button className='nav__button' onClick={(e) => { history.push('/login') }}>Log In</button>
+        </div>
+        <div className='nav__button__cont'>
+          <button className='nav__button' onClick={(e) => { history.push('/signup') }}>Sign Up</button>
+        </div>
       </>
     );
   }
 
   return (
     <div className='nav__cont'>
-      <NavLink exact to="/">Home</NavLink>
-      {sessionUser && <div className='user__upload__cont'>
-        <SongUpload />
-      </div>}
+      <div className='nav__button__cont'>
+        <button className='nav__button' onClick={(e) => history.push('/')}>Home</button>
+      </div>
+
+
+      {sessionUser &&
+        <div className='nav__button__cont'>
+          <div className='user__upload__cont'>
+            <SongUpload />
+          </div>
+        </div>
+      }
+
+
       {isLoaded && sessionLinks}
     </div>
   );

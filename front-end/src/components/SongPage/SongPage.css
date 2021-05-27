@@ -11,6 +11,7 @@
     margin-top: 15px;
     padding: 20px;
     border-radius: 10px;
+    min-width: 45%;
 }
 
 #songPage-all-cont{
@@ -51,7 +52,8 @@
 }
 
 .songPage__audio{
-    min-width: 825px;
+    width: 825px;
+    min-width: 500px;
 }
 
 .songPage__info__title{
@@ -83,7 +85,7 @@
     justify-content: space-between;
     align-items: center;
     min-height: 100px;
-    min-width: 100%;
+    width: 100%;
 }
 
 .songPage__comment__textarea{
@@ -93,11 +95,6 @@
     border-radius: 10px;
     border: 1px solid black;
     font-size: 18px;
-}
-
-.songPage__comment__button{
-    font-size: 18px;
-    margin-top: 8px
 }
 
 .comment_text{

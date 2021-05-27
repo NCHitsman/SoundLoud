@@ -7,7 +7,7 @@ function SongUploadModal({songId}) {
 
     return (
         <>
-            <button onClick={(e) => {
+            <button className='nav__button' onClick={(e) => {
                 e.preventDefault()
                 setShowSongModal(true)
             }}>Upload New Song</button>

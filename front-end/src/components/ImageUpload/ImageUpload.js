@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {findAllSongs} from '../../store/songs'
+import { findAllSongs } from '../../store/songs'
 import { uploadImage } from '../../store/user';
 
 
-const ImageUpload = ({songId, setShowModal}) => {
+const ImageUpload = ({ songId, setShowModal }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const [image, setImage] = useState();
@@ -23,16 +23,19 @@ const ImageUpload = ({songId, setShowModal}) => {
   };
 
   return (
-    <>
-      <form onSubmit={submitHandler}>
+    <div className='form__cont modal__form'>
+      <form className='form' onSubmit={submitHandler}>
+        <div className='form__input__cont modal__form__input__cont'>Cover Image:
         <input
-          type="file"
-          onChange={updateImage}
-          onClick={(e) => e.stopPropagation()}
-        />
-        <button type="submit" onClick={(e) => {e.stopPropagation()}}>Upload</button>
+            type="file"
+            className='form__input doc__input'
+            onChange={updateImage}
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+        <button style={{backgroundColor: '#9F86C0'}} type="submit" onClick={(e) => { e.stopPropagation() }}>Upload</button>
       </form>
-    </>
+    </div>
   );
 };
 
