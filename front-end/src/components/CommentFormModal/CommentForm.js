@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { createComment, editComment } from '../../store/songs'
 import './CommentFormModal.css'
 
-const CommentForm = ( {songId, userId, setShowModal, edit, commentId }) => {
+const CommentForm = ({ songId, userId, setShowModal, edit, commentId, commentText }) => {
     const dispatch = useDispatch();
-    const [text, setText] = useState("");
+    const [text, setText] = useState(undefined);
 
     const handleSubmitNew = async (e) => {
         e.preventDefault();
@@ -33,16 +33,23 @@ const CommentForm = ( {songId, userId, setShowModal, edit, commentId }) => {
         setShowModal(false)
     }
 
+    console.log(commentText)
+
     return (
-        <form className='comment__form' onSubmit={edit ? handleSubmitEdit : handleSubmitNew}>
-            <textarea
-                className='comment__edit__textarea'
-                value={text}
-                onChange={(e) => { setText(e.target.value) }}
-                required
-            ></textarea>
-            <button type='submit'>Submit</button>
-        </form>
+        <div className='form__cont modal__form'>
+            <form className='form' onSubmit={edit ? handleSubmitEdit : handleSubmitNew}>
+                <div className='form__input__cont modal__form__input__cont'>Edit Comment:
+                    <textarea
+                        className='comment__edit__textarea form__input doc__input'
+                        value={text}
+                        onChange={(e) => { setText(e.target.value) }}
+                        defaultValue={commentText}
+                        required
+                    ></textarea>
+                </div>
+                <button style={{backgroundColor: '#9F86C0'}} type='submit'>Submit</button>
+            </form>
+        </div>
     )
 }
 

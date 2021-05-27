@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal';
 import CommentForm from './CommentForm';
 import './CommentFormModal.css'
 
-function CommentFormModal({songId, userId, edit, commentId } ) {
+function CommentFormModal({songId, userId, edit, commentId, commentText } ) {
   const [showModal, setShowModal] = useState(false);
   console.log(edit)
 
@@ -16,7 +16,7 @@ function CommentFormModal({songId, userId, edit, commentId } ) {
       }
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CommentForm songId={songId} userId={userId} setShowModal={setShowModal} edit={edit} commentId={commentId} />
+          <CommentForm songId={songId} userId={userId} setShowModal={setShowModal} edit={edit} commentId={commentId} commentText={commentText} />
         </Modal>
       )}
     </>

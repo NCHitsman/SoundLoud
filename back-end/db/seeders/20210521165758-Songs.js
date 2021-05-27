@@ -47,7 +47,53 @@ module.exports = {
       cover: 'https://res.cloudinary.com/hitsman/image/upload/v1621980525/96e991e9584a9ab6ddd9706f59b46f0b.300x300x1_ephbxo.jpg',
       createdAt: new Date(),
       updatedAt: new Date()
-    }], {});
+    },{
+      name: 'Justin Caruso - High Enough (Feat. Rosie Darling)(Adam Pearce Remix)',
+      link: 'https://res.cloudinary.com/hitsman/video/upload/v1622138200/Justin_Caruso_-_High_Enough_Adam_Pearce_Remix_qw7vsf.mp3',
+      createdBy: 4,
+      views: 1026,
+      category: 2,
+      cover: 'https://res.cloudinary.com/hitsman/image/upload/v1622138203/88c5229b83480b3b7219ccd484023f02.500x500x1_k9y5vq.jpg',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      name: 'Another Day In Paradise (Prod. by ayokay)',
+      link: 'https://res.cloudinary.com/hitsman/video/upload/v1622138409/Quinn_XCII_-_Another_Day_In_Paradise_Prod._ayokay_g9l1lt.mp3',
+      createdBy: 5,
+      views: 10226,
+      category: 2,
+      cover: 'https://res.cloudinary.com/hitsman/image/upload/v1622138398/artworks-000135047374-m3wzh4-t500x500_rknavm.jpg',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      name: 'Violins (Prod. ayokay)',
+      link: 'https://res.cloudinary.com/hitsman/video/upload/v1622138501/Quinn_XCII_-_Violins_Prod._ayokay_aqqzv1.mp3',
+      createdBy: 5,
+      views: 626,
+      category: 2,
+      cover: 'https://res.cloudinary.com/hitsman/image/upload/v1622138484/artworks-000132487922-lkc838-t500x500_w5zxpc.jpg',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      name: 'Atlas',
+      link: 'https://res.cloudinary.com/hitsman/video/upload/v1622138644/Faux_Tales_-_Atlas_hqmu8a.mp3',
+      createdBy: 6,
+      views: 8226,
+      category: 3,
+      cover: 'https://res.cloudinary.com/hitsman/image/upload/v1622138647/artworks-000076491804-8tfa8h-t500x500_bg6pm3.jpg',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      name: 'Circles',
+      link: 'https://res.cloudinary.com/hitsman/video/upload/v1622138765/Quinn_XCII_-_Full_Circle_Prod._ayokay_kvvdth.mp3',
+      createdBy: 5,
+      views: 3226,
+      category: 2,
+      cover: 'https://res.cloudinary.com/hitsman/image/upload/v1622138707/artworks-000135046544-418b36-t500x500_rtdh4j.jpg',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }
+  ], {});
   },
 
   down: (queryInterface, Sequelize) => {

@@ -92,7 +92,7 @@ export default function SongPage({ all }) {
 
                                             {userId === comment.User.id ? //buttons
                                                 <div className='comment__info__box comment__buttons'>
-                                                    <CommentFormModal songId={songId} userId={userId} edit={true} commentId={comment.id} />
+                                                    <CommentFormModal songId={songId} userId={userId} edit={true} commentId={comment.id} commentText={comment.text} />
                                                     <button className='comment__button' onClick={(e) => commentDelete(comment.id)}>Delete Comment</button>
                                                 </div> :
                                                 <div></div>
