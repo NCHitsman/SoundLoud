@@ -52,7 +52,7 @@
 }
 
 .songPage__audio{
-    width: 825px;
+    width: 865px;
     min-width: 500px;
 }
 
@@ -157,4 +157,30 @@
 .comment__size__short{
     max-height: 55%;
     min-height: 55%;
+}
+
+.songPage__info__artist__cont{
+    display: flex;
+    justify-content: space-between;
+    max-width: 97%;
+}
+
+.songPage__info__views{
+    font-size: 15px;
+    font-weight:lighter;
+    margin-top: 5px;
+}
+
+.songPage__info__child__cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+    margin-bottom: 10px;
+    min-width: 700px;
+    max-width: 700px;
+}
+
+.songPage__title__artist__cont{
+    max-width: 98%;
 }

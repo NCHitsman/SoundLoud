@@ -4,7 +4,10 @@
     flex-wrap: nowrap;
     flex-direction: row;
     border: 1px solid black;
-    padding: 15px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
     text-decoration: none;
@@ -52,6 +55,7 @@
     max-width: 90%;
     font-size: 32px;
     font-weight: bold;
+    min-width: 98%;
 }
 
 .song__info__artist{
@@ -78,3 +82,8 @@
     min-width: 100%;
 }
 
+.song__info__artist__cont{
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+}

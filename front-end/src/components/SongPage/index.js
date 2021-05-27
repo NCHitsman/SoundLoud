@@ -59,12 +59,22 @@ export default function SongPage({ all }) {
 
                         <img alt='song cover' id='songPage__img' className='s__logo' src={song?.cover}></img>
 
-                        <div className='textAlign songPage__info__title'>
-                            {song?.name}
-                            <div className='textAlign'>
+                        <div className='songPage__info__child__cont'>
+                            <div className='songPage__title__artist__cont'>
+                                <div className='textAlign songPage__info__title'>
+                                    {song?.name}
+                                </div>
                                 <Link className='songPage__info__artist' to={`/users/${song?.User.id}`}>
                                     {song?.User.username}
                                 </Link>
+                            </div>
+                            <div className='songPage__info__artist__cont'>
+                                <div className='songPage__info__views'>
+                                    Views: {song?.views}
+                                </div>
+                                <div className='songPage__info__artist'>
+                                    {song?.Category.name}
+                                </div>
                             </div>
                         </div>
 
@@ -77,7 +87,7 @@ export default function SongPage({ all }) {
 
                 </div>
 
-                <div className={'song__comment__cont '+commentClass}>
+                <div className={'song__comment__cont ' + commentClass}>
 
                     <div className='comment__holder'>
 
@@ -120,7 +130,7 @@ export default function SongPage({ all }) {
                             required
                             placeholder='Write your comment here'
                         ></textarea>
-                        <button style={{backgroundColor: '#9F86C0'}} className='songPage__comment__button' type='submit'>Submit</button>
+                        <button style={{ backgroundColor: '#9F86C0' }} className='songPage__comment__button' type='submit'>Submit</button>
                     </form>}
                 </div>
 
