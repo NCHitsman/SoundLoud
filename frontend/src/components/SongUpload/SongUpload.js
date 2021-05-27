@@ -20,7 +20,8 @@ const SongUpload = ({ setShowSongModal }) => {
   const submitHandler = async (e) => {
     e.preventDefault();
     await dispatch(uploadSong(song, user.id, name));
-    dispatch(findAllSongs())
+    await dispatch(findAllSongs())
+    setShowSongModal(false)
   };
 
   return (

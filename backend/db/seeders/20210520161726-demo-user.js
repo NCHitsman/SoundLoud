@@ -33,6 +33,11 @@ module.exports = {
         username: 'Faux Tales',
         hashedPassword: 'password',
       },
+      {
+        email: 'ericdoa@user.io',
+        username: 'ericdoa',
+        hashedPassword: 'password',
+      },
     ], {});
   },
 

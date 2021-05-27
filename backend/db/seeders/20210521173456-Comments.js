@@ -118,8 +118,44 @@ module.exports = {
       updatedAt: new Date()
     },{
       text: 'perfect.',
-      userId: 2,
+      userId: 3,
       songId: 10,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      text: 'this one is awesome.',
+      userId: 4,
+      songId: 12,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      text: 'love this track.',
+      userId: 2,
+      songId: 12,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      text: 'could listen to this all day.',
+      userId: 1,
+      songId: 13,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      text: 'cant get it out of my head haha!',
+      userId: 4,
+      songId: 13,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      text: 'this one is my favorite of yours.',
+      userId: 2,
+      songId: 11,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      text: 'cant wait for you to get big!',
+      userId: 3,
+      songId: 11,
       createdAt: new Date(),
       updatedAt: new Date()
     }

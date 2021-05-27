@@ -92,6 +92,33 @@ module.exports = {
       cover: 'https://res.cloudinary.com/hitsman/image/upload/v1622138707/artworks-000135046544-418b36-t500x500_rtdh4j.jpg',
       createdAt: new Date(),
       updatedAt: new Date()
+    },{
+      name: 'thingsudo2me',
+      link: 'https://res.cloudinary.com/hitsman/video/upload/v1622148905/i5wbhivx4zqmjejmceuj.mp3',
+      createdBy: 7,
+      views: 13226,
+      category: 1,
+      cover: 'https://res.cloudinary.com/hitsman/image/upload/v1622148931/n0khvmqgtltwgxprkxvk.jpg',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      name: 'likewise',
+      link: 'https://res.cloudinary.com/hitsman/video/upload/v1622149348/likewise_aae088.mp3',
+      createdBy: 7,
+      views: 8356,
+      category: 1,
+      cover: 'https://res.cloudinary.com/hitsman/image/upload/v1622149338/ab67616d00001e0230646dbd45aa0a89040b78a8_pj1xlo.jpg',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },{
+      name: 'cloak n dagger',
+      link: 'https://res.cloudinary.com/hitsman/video/upload/v1622149471/glaive_x_ericdoa_-_cloak_n_dagger_qkqsxn.mp3',
+      createdBy: 7,
+      views: 5356,
+      category: 1,
+      cover: 'https://res.cloudinary.com/hitsman/image/upload/v1622149461/artworks-PMQNpgrOg0yDphrI-1Bl7hQ-t500x500_ntdsxr.jpg',
+      createdAt: new Date(),
+      updatedAt: new Date()
     }
   ], {});
   },
