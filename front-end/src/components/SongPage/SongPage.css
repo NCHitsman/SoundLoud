@@ -1,9 +1,9 @@
 .songPage{
     display: flex;
+    justify-content: center;
 }
 
 .songPage__cont{
-    max-width: 98%;
     min-height: calc(100vh - 50px - 126px);
     max-height: calc(100vh - 50px - 126px);
     border: 1px solid black;
@@ -11,7 +11,7 @@
     margin-top: 15px;
     padding: 20px;
     border-radius: 10px;
-    min-width: 45%;
+    width: 92%;
 }
 
 #songPage-all-cont{
@@ -32,25 +32,6 @@
     justify-content: space-evenly;
 }
 
-.song__comment__cont{
-    overflow: auto;
-    background-color: #E0B1CB;
-    border-radius: 10px;
-    border: 1px solid black;
-    margin-top: 5px;
-}
-
-
-.comment__li {
-    background-color: #9F86C0;
-    margin-top: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
-    border: 1px solid black;
-}
-
 .songPage__audio{
     width: 865px;
     min-width: 500px;
@@ -67,6 +48,34 @@
     text-decoration: none;
     color: black;
 }
+.song__comment__cont{
+    overflow: auto;
+    background-color: #E0B1CB;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-top: 5px;
+    width: 99.4%;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+
+.comment__li {
+    background-color: #9F86C0;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    border: 1px solid black;
+    min-width: 95%;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .write__comment__cont{
     min-width: 100%;
@@ -110,6 +119,7 @@
 
 .li__comment__holder{
     padding-bottom: 10px;
+    min-width: 100%;
 }
 
 .comment__info__cont{
@@ -118,6 +128,7 @@
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
+    min-width: 97%;
 }
 
 .comment__info__box{
@@ -142,6 +153,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    min-width: 100%;
 }
 
 #songPage__img{
@@ -177,8 +189,8 @@
     justify-content: space-between;
     min-height: 150px;
     margin-bottom: 10px;
-    min-width: 700px;
-    max-width: 700px;
+    min-width: 83%;
+    max-width: 83%;
 }
 
 .songPage__title__artist__cont{
