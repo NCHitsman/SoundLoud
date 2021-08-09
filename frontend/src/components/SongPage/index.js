@@ -12,7 +12,6 @@ export default function SongPage({ all }) {
     const { songId } = useParams()
     const dispatch = useDispatch()
     const [text, setText] = useState(undefined);
-    let commentClass = ''
 
 
     useEffect(() => {
@@ -25,11 +24,6 @@ export default function SongPage({ all }) {
 
     const userId = useSelector(store => store.session.user ? store.session.user.id : false)
 
-    if (userId) {
-        commentClass = 'comment__size__short'
-    } else {
-        commentClass = 'comment__size__long'
-    }
 
     const commentDelete = (commentId) => {
         dispatch(deleteComment(commentId))
