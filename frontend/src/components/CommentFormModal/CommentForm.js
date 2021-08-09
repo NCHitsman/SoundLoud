@@ -5,7 +5,7 @@ import './CommentFormModal.css'
 
 const CommentForm = ({ songId, userId, setShowModal, edit, commentId, commentText }) => {
     const dispatch = useDispatch();
-    const [text, setText] = useState(undefined);
+    const [text, setText] = useState();
 
     const handleSubmitNew = async (e) => {
         e.preventDefault();

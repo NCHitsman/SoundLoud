@@ -51,7 +51,7 @@ function App() {
                 <UserPage />
               </Route>
               <Route exact path='/'>
-                <Home all={all} popular={popular} />
+                <Home popular={popular} />
               </Route>
             </Switch>
           )}

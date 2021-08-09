@@ -2,7 +2,7 @@ import './Home.css'
 import SongBlock from '../SongBlock'
 
 
-export default function Home({ all, popular }) {
+export default function Home({ popular }) {
 
     return (
         <>

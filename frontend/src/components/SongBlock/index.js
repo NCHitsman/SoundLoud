@@ -33,14 +33,6 @@ const SongBlock = ({ song, className, owned }) => {
                                 <div className='song__info__artist'>{song?.Category?.name}</div>
                             </div>
                         </div>
-                        <div className='song__info__sub'>
-                            {/* <div>
-                            {'Views: '} {song?.views}
-                        </div>
-                        <div>
-                            {'Category: '}{song?.Category?.name}
-                        </div> */}
-                        </div>
                         <audio className='audio__bar' controls src={song.link} />
                         <div className='user__song__func__buttons' >
                             <div>Views: {song?.views}</div>
