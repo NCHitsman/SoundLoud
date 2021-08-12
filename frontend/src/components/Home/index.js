@@ -3,7 +3,6 @@ import SongBlock from '../SongBlock'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { clearComments } from '../../store/songs'
-import { clearUserPage } from '../../store/user'
 
 
 export default function Home({ popular }) {
@@ -11,7 +10,6 @@ export default function Home({ popular }) {
 
     useEffect(() => {
         dispatch(clearComments())
-        dispatch(clearUserPage())
     }, [dispatch])
 
     return (
