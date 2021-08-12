@@ -4,6 +4,7 @@ const FIND_SONGS = 'songs/FIND_SONGS'
 const FIND_POPULAR = 'songs/FIND_POPULAR'
 const FIND_COMMENTS = 'songs/FIND_COMMENTS'
 const ADD_COMMENT = 'songs/ADD_COMMENT'
+const CLEAR_COMMENTS = 'songs/CLEAR_COMMENTS'
 let counterTwo = 10000;
 
 const findSongs = (songs) => {
@@ -24,6 +25,12 @@ const findComments = (comments) => {
     return {
         type: FIND_COMMENTS,
         payload: comments
+    }
+}
+
+const clearAllComments = () => {
+    return {
+        type: CLEAR_COMMENTS
     }
 }
 
@@ -54,6 +61,10 @@ export const findSongComments = (songId) => async (dispatch) => {
     const data = await response.json()
     dispatch(findComments(data))
     return response
+}
+
+export const clearComments = () => async (dispatch) => {
+    dispatch(clearAllComments())
 }
 
 export const createComment = (newComment, songId) => async (dispatch) => {
@@ -96,7 +107,7 @@ export const deleteSong = (songId) => async (dispatch) => {
 }
 
 
-const songReducer = (state = {songs: {}, popular: {}}, action) => {
+const songReducer = (state = { songs: {}, popular: {} }, action) => {
     let newState;
 
     switch (action.type) {
@@ -124,8 +135,12 @@ const songReducer = (state = {songs: {}, popular: {}}, action) => {
                 counterTwo--
             })
             return newState;
+        case CLEAR_COMMENTS:
+            newState = { ...state }
+            newState.comments = {}
+            return newState
         case ADD_COMMENT:
-            newState = { ...state, comments: {...state.comments} }
+            newState = { ...state, comments: { ...state.comments } }
             newState.comments[counterTwo] = action.payload;
             counterTwo--
             return newState;

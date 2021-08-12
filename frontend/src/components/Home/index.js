@@ -1,8 +1,18 @@
 import './Home.css'
 import SongBlock from '../SongBlock'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { clearComments } from '../../store/songs'
+import { clearUserPage } from '../../store/user'
 
 
 export default function Home({ popular }) {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(clearComments())
+        dispatch(clearUserPage())
+    }, [dispatch])
 
     return (
         <>

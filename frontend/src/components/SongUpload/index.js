@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import SongUpload from './SongUpload';
 
-function SongUploadModal({songId}) {
+function SongUploadModal({ songId }) {
     const [showSongModal, setShowSongModal] = useState(false);
 
     return (

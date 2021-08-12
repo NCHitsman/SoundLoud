@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf'
 const FIND_USER = 'user/FIND_USER'
 const FIND_USER_SONGS = 'user/FIND_USER_SONGS'
 const SET_IMAGE = 'images/SET_IMAGE';
+const CLEAR_USER = 'user/CLEAR_USER'
 
 const findAUser = (user) => {
     return {
@@ -22,6 +23,10 @@ const setImage = (song) => ({
     type: SET_IMAGE,
     payload: song,
 });
+
+const clearUserInfo = () => ({
+    type: CLEAR_USER
+})
 
 
 export const uploadImage = (imageData, userId, songId) => async (dispatch) => {
@@ -71,6 +76,10 @@ export const findUserSongs = (userId) => async (dispatch) => {
     return response
 }
 
+export const clearUserPage = () => async (dispatch) => {
+    dispatch(clearUserInfo())
+}
+
 const userReducer = (state = {}, action) => {
     let newState = {};
 
@@ -88,9 +97,11 @@ const userReducer = (state = {}, action) => {
             newState = { ...state, songs: { ...state.songs } }
             newState.songs[action.payload.id] = action.payload
             return newState
+        case CLEAR_USER:
+            return {}
         default:
             return state
     }
 }
 
-    export default userReducer
+export default userReducer

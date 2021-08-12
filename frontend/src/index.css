@@ -1,33 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Georama&display=swap');
+
 body {
     background-color: #231942;
     font-family: overpass;
 }
-
-/* .section__container {
-    min-width: 50%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    padding-top: 30px;
-}
-
-.cont {
-    display: flex;
-    border: 1px solid black;
-    max-width: 40%;
-    padding-left: 10%;
-    padding-right: 10%;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-right: 50px;
-    margin-left: 50px;
-    max-height: calc(100vh - 50px - 85px);
-    overflow: auto;
-    border-radius: 7px;
-    background-color: #5E548E;
-    padding-bottom: 15px;
-} */
 
 .song__sidebar__cont{
     background-color: #5E548E;
