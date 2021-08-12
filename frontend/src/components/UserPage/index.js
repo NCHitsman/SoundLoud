@@ -14,6 +14,7 @@ export default function UserPage() {
     useEffect(() => {
         dispatch(findUser(userId))
         dispatch(findUserSongs(userId))
+        
     }, [dispatch, userId])
 
     const user = useSelector(state => state.userPage.user)
