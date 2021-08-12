@@ -15,8 +15,8 @@
     align-items: center;
     background-color: #9F86C0;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
-    min-width: 49rem;
-    max-width: 49rem;
+    min-width: 44vw;
+    min-width: 44vw;
 }
 
 
@@ -32,8 +32,8 @@
 
 
 .s__logo{
-    max-height: 150px;
-    max-width: 150px;
+    max-height: 16.00vh;
+    max-width: 7.8vw;
     border-radius: 8px;
     border: 1px solid black;
     margin-right: 20px;
@@ -44,35 +44,35 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    min-height: 120px;
+    min-height: 12.8vh;
 }
 
 .audio__bar{
-    min-width: 600px;
+    min-width: 31.25vw;
 }
 
 .song__info__title{
     max-width: 90%;
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: bold;
     min-width: 98%;
 }
 
 .song__info__artist{
-    font-size: 22px;
+    font-size: 1.375rem;
     font-weight: normal;
 }
 
 .song__info__sub{
-    max-width: 160px;
-    min-width: 160px;
+    max-width: 8.33vw;
+    min-width: 8.33vw;
 }
 
 .user__song__func__buttons{
     display: flex;
     width: 100%;
     justify-content: space-between;
-    margin-top: 6px
+    margin-top: 6px;
 }
 
 .parent__audio__cont{

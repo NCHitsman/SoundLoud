@@ -3,8 +3,8 @@
 }
 
 .comment__form{
-    min-width: 200px;
-    min-height: 200px;
+    min-width: 10.41vw;
+    min-height: 21.34vh;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -13,9 +13,9 @@
 }
 
 .comment__edit__textarea{
-    min-height: 100px;
-    min-width: 350px;
+    min-height: 10.67vh;
+    min-width: 18.229vw;
     text-align: left;
     padding: 5px;
-    font-size: 16px;
+    font-size: 1rem;
 }
