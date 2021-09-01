@@ -2,4 +2,4 @@
 
 ## A website that lets users upload and share original songs
 
-Tech Used: Javascript, CSS, React, Redux, Express
+Tech Used: Javascript, CSS, React, Redux, Express, Postgresql
